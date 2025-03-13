@@ -30,9 +30,9 @@ func main() {
 			if err == io.EOF {
 				break
 			}
+			fmt.Println("error reading from client: ", err.Error())
+			os.Exit(1)
 		}
-		fmt.Println("error reading from client: ", err.Error())
-		os.Exit(1)
 
 		conn.Write([]byte("+OK\r\n"))
 	}
